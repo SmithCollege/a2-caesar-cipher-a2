@@ -20,6 +20,20 @@ public class CaesarCipher {
      */
     CaesarCipher(int offset){
         // Fill in here
+        this.offset = offset;
+        alphabet = new Character[26];
+        for (int i = 0; i < 26; i++) {
+            alphabet[i] = (char) ('a' + i);
+        }
+    }
+
+public char get(int i){
+        int len = alphabet.length;
+        if (i < 0 || i >= len) {
+            throw new ArrayIndexOutOfBoundsException(i);
+        }else{
+            return alphabet[(i-offset+26)%26];
+        }
     }
 
     /** Implementation of linear search that looks through the alphabet
@@ -30,16 +44,33 @@ public class CaesarCipher {
     public int findIndex(char val){
         // This is a stub -- fill in the code and return the
         // value you calculate
-        return 0;
+        int len = alphabet.length;
+        for(int i = 0; i < len; i++){
+            if(alphabet[i] == val){
+                return i;
+            }
+        }
+        return -1;
     }
 
     /** Encode a message using the cipher
      * @param T message to encode
-     * @return encoded message */  
+    //  * @return encoded message */  
     public String encode(String message){
         // Fill in here and update return statement based on your code
-        return new String(); 
-     }
+        StringBuilder encode = new StringBuilder();
+        for (int i = 0; i < message.length(); i++) {
+            char c = message.charAt(i); // Get character at index i
+            //to do: add char case conversion
+            if (Character.isLowerCase(c)){ 
+                char encodedChar = (char) ((c - 'a' - offset + 26) % 26 + 'a');
+                encode.append(encodedChar);
+            } else {
+                encode.append(c);
+            }
+        }
+        return encode.toString(); 
+    }
 
     /** Decode a message using the cipher 
      * @param String message to decode
@@ -48,7 +79,20 @@ public class CaesarCipher {
     */
     public String decode(String message){
         // Fill in here and update return statement based on your code
-        return new String();
+        int key = offset;
+        StringBuilder decoded = new StringBuilder();
+
+        for (int i = 0; i < message.length(); i++) {
+            char c = message.charAt(i); // Get character at index i
+            //to do: add char case conversion
+            if (Character.isLowerCase(c)){ 
+                char decodedChar = (char) ((c - 'a' + key + 26) % 26 + 'a');
+                decoded.append(decodedChar);
+            } else {
+                decoded.append(c);
+            }
+        }
+        return decoded.toString(); 
     }
 
     public static void main(String[] args) {
