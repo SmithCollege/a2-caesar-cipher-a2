@@ -12,41 +12,33 @@ public class DynamicArray<T> implements IndexAccess<T>{
 
     // Write a constructor to make a new DynamicArray Object from an array
     @SuppressWarnings("unchecked")
-    public DynamicArray(int len, T[] array){
-        array = (T[])(new Object[len]);
-        this.offset = 0;
+    public DynamicArray(int offset, T[] inputArray){
+        array = (T[])(new Object[inputArray.length]);
+        this.offset = offset;
         low = 0;
-        high = len-1;
-    }
-
-    @SuppressWarnings("unchecked")
-    public DynamicArray(DynamicArray<T> orig){
-        array = (T[])(new Object[orig.array.length]);
-        offset = orig.offset;
-        low = orig.low;
-        high = orig.high;
+        high = inputArray.length-1;
         for (int i = low; i <= high; i++){
-            set(i, orig.get(i));
+            array[i] = inputArray[i];
         }
     }
 
     // Now implement the methods from IndexAccess?
     //get, set
     public T get(int i){
-        if (i < 0 || i > high) {
-            throw new ArrayIndexOutOfBoundsException(i);
+        if (i >= low || i <= high) {
+            return array[i];
         }else{
-            return array[i+offset];
+            throw new ArrayIndexOutOfBoundsException(i);
         }
+        
     }
 
     public T get(int i, int offset){
         int newIndex = i + offset;
         if (newIndex < 0 || newIndex > high) {
             throw new ArrayIndexOutOfBoundsException(newIndex);
-        }else{
-            return array[newIndex];
         }
+        return array[newIndex];
     }
     
     public void set(int i, T value){
