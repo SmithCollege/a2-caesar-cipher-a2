@@ -58,6 +58,7 @@ public char get(int i){
     //  * @return encoded message */  
     public String encode(String message){
         // Fill in here and update return statement based on your code
+        offset = offset % 26;
         StringBuilder encode = new StringBuilder();
         for (int i = 0; i < message.length(); i++) {
             char c = message.charAt(i); // Get character at index i
@@ -79,7 +80,7 @@ public char get(int i){
     */
     public String decode(String message){
         // Fill in here and update return statement based on your code
-        int key = offset;
+        int key = offset % 26;
         StringBuilder decoded = new StringBuilder();
 
         for (int i = 0; i < message.length(); i++) {

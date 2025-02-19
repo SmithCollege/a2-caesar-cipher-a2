@@ -53,10 +53,10 @@ public class DynamicArrayTests {
         System.out.println(alphaTest.get(0, 3));
         assertEquals("Is d returned by the 0 index (offset 3)?", 'd',
                 alphaTest.get(0, 3).charValue());
-
+        System.out.println(alphaTest.get(-1, 3));
         assertEquals("Is c returned by the -1 index (offset 3)?", 'c',
                 alphaTest.get(-1, 3).charValue());
-
+        System.out.println(alphaTest.get(-3, 3));
         assertEquals("Is a returned by the -3 index (offset 3)?", 'a',
                 alphaTest.get(-3, 3).charValue());
 
