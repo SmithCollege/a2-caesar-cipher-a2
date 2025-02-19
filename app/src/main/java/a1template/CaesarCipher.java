@@ -23,7 +23,7 @@ public class CaesarCipher {
         this.offset = offset;
         alphabet = new Character[26];
         for (int i = 0; i < 26; i++) {
-            alphabet[i] = (char) ('a' + i);
+            alphabet[i] = (char) ('a' + i);  //code from source: https://stackoverflow.com/a/27735081/29704452
         }
     }
 
@@ -59,18 +59,18 @@ public char get(int i){
     public String encode(String message){
         // Fill in here and update return statement based on your code
         offset = offset % 26;
-        StringBuilder encode = new StringBuilder();
+        StringBuilder encoded = new StringBuilder();
         for (int i = 0; i < message.length(); i++) {
             char c = message.charAt(i); // Get character at index i
             //to do: add char case conversion
             if (Character.isLowerCase(c)){ 
-                char encodedChar = (char) ((c - 'a' - offset + 26) % 26 + 'a');
-                encode.append(encodedChar);
+                char encodedChar = (char) ((c - 'a' - offset + 26) % 26 + 'a'); //code from source: https://stackoverflow.com/a/20793545/29704452
+                encoded.append(encodedChar);
             } else {
-                encode.append(c);
+                encoded.append(c);
             }
         }
-        return encode.toString(); 
+        return encoded.toString(); 
     }
 
     /** Decode a message using the cipher 
@@ -87,7 +87,7 @@ public char get(int i){
             char c = message.charAt(i); // Get character at index i
             //to do: add char case conversion
             if (Character.isLowerCase(c)){ 
-                char decodedChar = (char) ((c - 'a' + key + 26) % 26 + 'a');
+                char decodedChar = (char) ((c - 'a' + key + 26) % 26 + 'a'); //code from source: https://stackoverflow.com/a/20793545/29704452
                 decoded.append(decodedChar);
             } else {
                 decoded.append(c);

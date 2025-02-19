@@ -8,13 +8,16 @@ Programming Partner Name:
 
 Other Collaborators (and kudos to people who were especially helpful):
 
-References Used:
+References Used:https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/, https://stackoverflow.com/questions/17575840/better-way-to-generate-array-of-all-letters-in-the-alphabet, https://stackoverflow.com/questions/20793472/caeasar-cipher-with-javas-acm
 
 
 ## Reflection Questions
 
 What was your favorite part of this assignment?
+My favorite part of this assignment was being able to see the results of the ceaser cipher and play around with it to create many different outputs. 
 
 What was most challenging about this assignment?
+The most challenging part of this assignment was creating the costructors for the DynamicArray class because at first I was using th int parameter as a length for the array but as I continued testing I realized it should be the offset. I also found the code for the encoding and decoding difficult as I am still learning java syntax which is why I relied on ouside sources.
 
 General comments on your experience with this assignment:
+This assignment gave me a good insight into what other assignments for this course would look like. However, I found that the instructions could have been clearer, especially regarding the expected functionality of each method. More examples would have also been helpful tos understanding the requirements and implementation details.
