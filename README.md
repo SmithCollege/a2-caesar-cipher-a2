@@ -21,3 +21,4 @@ The most challenging part of this assignment was creating the costructors for th
 
 General comments on your experience with this assignment:
 This assignment gave me a good insight into what other assignments for this course would look like. However, I found that the instructions could have been clearer, especially regarding the expected functionality of each method. More examples would have also been helpful tos understanding the requirements and implementation details.
+
